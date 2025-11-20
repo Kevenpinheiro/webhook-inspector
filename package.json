@@ -1,0 +1,11 @@
+{
+  "name": "webhook-js",
+  "version": "1.0.0",
+  "description": "",
+  "private":"true",
+  "workspaces": [
+    "web",
+    "api"
+  ],
+  "packageManager": "pnpm@10.14.0"
+}
