@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
-import { db } from '.'
 import { webhooks } from './schema'
+import { db } from '.'
 
 const stripeWebhookSecret = 'whsec_' + faker.string.alphanumeric(32)
 
@@ -338,7 +338,9 @@ function generateStripeWebhook() {
 }
 
 async function seed() {
-  console.log('Seeding database with 60 Stripe webhook events...')
+  console.log('🌱 Seeding database...')
+
+  await db.delete(webhooks)
 
   const webhookData = Array.from({ length: 60 }, () => generateStripeWebhook())
 
