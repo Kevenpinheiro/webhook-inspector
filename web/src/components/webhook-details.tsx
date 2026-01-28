@@ -14,11 +14,11 @@ export function WebhookDetails({ id }: WebhookDetailsProps) {
     queryKey: ['webhook', id],
     queryFn: async () => {
       const response = await fetch(`http://localhost:3333/api/webhooks/${id}`)
-      
+
       if (!response.ok) {
         throw new Error(`Failed to fetch webhook: ${response.status}`)
       }
-      
+
       const data = await response.json()
 
       return webhookDetailsSchema.parse(data)
